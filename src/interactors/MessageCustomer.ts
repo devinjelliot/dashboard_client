@@ -1,4 +1,4 @@
-import { Order } from "../models/OrderCreateModel";
+import { Order } from "../models/OrderModel";
 
 export class NotifyCustomerInteractor {
   constructor(private order: Order) {}

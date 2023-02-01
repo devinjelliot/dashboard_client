@@ -1,20 +1,18 @@
 
-import { TransactionHistoryModel } from "../models/TransactionHistoryModel";
+import { Order } from '../models/OrderModel';
 
-interface TransactionHistoryState {
-  transactions: TransactionHistoryModel[];
-  selectedTransaction: TransactionHistoryModel | null;
-  downloadFormat: "csv" | "pdf" | null;
-  isLoading: boolean;
-  error: string | null;
+export interface TransactionHistoryState {
+  orders: Order[];
+  isOrdersListView: boolean;
+  filterStartDate: Date | null;
+  filterEndDate: Date | null;
 }
 
-const initialState: TransactionHistoryState = {
-  transactions: [],
-  selectedTransaction: null,
-  downloadFormat: null,
-  isLoading: false,
-  error: null,
+export const initialTransactionHistoryState: TransactionHistoryState = {
+  orders: [],
+  isOrdersListView: true,
+  filterStartDate: null,
+  filterEndDate: null
 };
 
-export { type TransactionHistoryState, initialState };
+
