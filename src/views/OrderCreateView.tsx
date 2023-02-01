@@ -8,8 +8,8 @@ const OrderCreateView: React.FC = () => {
   const handleOrderValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setState({
       ...state,
-      orderCreate: {
-        ...state.orderCreate,
+      order: {
+        ...state.order,
         orderValue: parseInt(event.target.value, 10)
       }
     });
@@ -18,8 +18,8 @@ const OrderCreateView: React.FC = () => {
   const handleCustomerPhone1Change = (event: React.ChangeEvent<HTMLInputElement>) => {
     setState({
       ...state,
-      orderCreate: {
-        ...state.orderCreate,
+      order: {
+        ...state.order,
         customerPhone1: parseInt(event.target.value, 10)
       }
     });
@@ -28,8 +28,8 @@ const OrderCreateView: React.FC = () => {
   const handleCustomerEmail1Change = (event: React.ChangeEvent<HTMLInputElement>) => {
     setState({
       ...state,
-      orderCreate: {
-        ...state.orderCreate,
+      order: {
+        ...state.order,
         customerEmail1: event.target.value
       }
     });
@@ -38,7 +38,7 @@ const OrderCreateView: React.FC = () => {
   const handleSubmit = async () => {
     try {
       setState({ ...state, loading: true, error: null });
-      await PaymentServices.submitOrder(state.orderCreate);
+      await PaymentServices.submitOrder(state.order);
       setState({ ...state, loading: false, error: null });
     } catch (error) {
       setState({ ...state, loading: false, error: null }); //i changed that null to make it work, maybe not a good idea sorry future devin
@@ -52,7 +52,7 @@ const OrderCreateView: React.FC = () => {
         <input
           type="number"
           id="orderValue"
-          value={state.orderCreate.orderValue}
+          value={state.order.orderValue}
           onChange={handleOrderValueChange}
         />
       </div>
@@ -61,7 +61,7 @@ const OrderCreateView: React.FC = () => {
         <input
           type="number"
           id="customerPhone1"
-          value={state.orderCreate.customerPhone1}
+          value={state.order.customerPhone1}
           onChange={handleCustomerPhone1Change}
         />
       </div>
@@ -70,7 +70,7 @@ const OrderCreateView: React.FC = () => {
         <input
           type="email"
           id="customerEmail1"
-          value={state.orderCreate.customerEmail1}
+          value={state.order.customerEmail1}
           onChange={handleCustomerEmail1Change}
         />
       </div>
