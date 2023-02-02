@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { OrderState, convertToOrderViewModel, initialOrderCreateState } from '../states/OrderState';
-//import PaymentServices from './PaymentServices';
+import { OrderState, initialOrderCreateState } from '../states/OrderState';
+import { PaymentServiceStub } from '../PaymentServiceStub';
 
 const OrderCreateView: React.FC = () => {
   const [state, setState] = useState<OrderState>(initialOrderCreateState);
@@ -38,10 +38,10 @@ const OrderCreateView: React.FC = () => {
   const handleSubmit = async () => {
     try {
       setState({ ...state, loading: true, error: null });
-      await PaymentServices.submitOrder(state.order);
+      await PaymentServiceStub.submitOrder(state.order);
       setState({ ...state, loading: false, error: null });
     } catch (error) {
-      setState({ ...state, loading: false, error: null }); //i changed that null to make it work, maybe not a good idea sorry future devin
+      setState({ ...state, loading: false, error: "error" });
     }
   };
 

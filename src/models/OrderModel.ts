@@ -1,6 +1,6 @@
 
   export interface Order {
-    orderId: string;
+    orderId: string; // get this data from integration
     date: string;
     time: string;
     customerPhone1: number;

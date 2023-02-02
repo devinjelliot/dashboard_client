@@ -4,7 +4,7 @@ import { TransactionHistoryViewModel } from "../models/TransactionHistoryViewMod
 
 
 export interface OrderState {
-  orderCreate: OrderCreateViewModel;
+  order: OrderCreateViewModel;
   transactionHistory: TransactionHistoryViewModel;
   loading: boolean;
   error: string | null;
@@ -36,7 +36,7 @@ export function convertToTransactionHistoryViewModel(order: Order): TransactionH
   }
 
 export const initialOrderCreateState: OrderState = {
-    orderCreate: {
+    order: {
       orderValue: 0,
       customerPhone1: 0,
       customerEmail1: '',
@@ -52,7 +52,7 @@ export const initialOrderCreateState: OrderState = {
         fee: 0,
         orderTotal: 0,
       },
-      orderStatus: 'pending'
+      orderStatus: 'success'
     },
 
     loading: false,
