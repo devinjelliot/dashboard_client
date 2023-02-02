@@ -2,8 +2,8 @@ import { Order } from "./models/OrderModel";
 import { OrderState } from "./states/OrderState";
 import { PaymentService } from "./PaymentService";
 
-
-export class PaymentServiceStub implements PaymentService {
+export const paymentServiceStub = (): PaymentService => {
+  return {
     submitOrder(order: OrderState): Promise<Order> {
       console.log(`Submitting order: ${JSON.stringify(order)}`);
       return Promise.resolve({
@@ -21,5 +21,6 @@ export class PaymentServiceStub implements PaymentService {
         },
         orderStatus: 'success',
       });
-    }
-  }
+    },
+  };
+};

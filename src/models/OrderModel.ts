@@ -15,6 +15,28 @@
     orderStatus: 'pending' | 'confirmedQueue' | 'confirmed N/N' | 'success' | 'error' | 'fail';
   }
 
+
+  export interface OrderCreateViewModel {
+    orderValue: number;
+    customerPhone1: number;
+    customerEmail1: string;
+  }
+  
+  export interface TransactionHistoryViewModel {
+    orderId: string;
+    date: string;
+    time: string;
+    orderTotal: {
+      subTotal: number;
+      tip: number;
+      fee: number;
+      orderTotal: number;
+    };
+    orderStatus: 'success';
+  }
+  
+
+
   // Mock Data Used For Rapid Setup -> DUH
   export const mockOrders: Order[] = [
     {
